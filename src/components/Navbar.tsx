@@ -4,22 +4,25 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navLinks = [
-    { href: '/', label: 'Overview' },
-    { href: '/apps/cortex', label: 'Cortex' },
-    { href: '/apps', label: 'Projects' },
-    { href: '/announcements', label: 'Devlog' },
-    { href: '/privacy', label: 'Privacy' },
+    { href: '/', label: t.nav.overview },
+    { href: '/apps/cortex', label: t.nav.cortex },
+    { href: '/apps', label: t.nav.projects },
+    { href: '/announcements', label: t.nav.devlog },
+    { href: '/privacy', label: t.nav.privacy },
   ];
 
   const isActive = (href: string) => {
-    if (href === '/') return pathname === '/';
+    if (href === '/') return pathname === '';
     return pathname.startsWith(href);
   };
 
@@ -27,12 +30,16 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 backdrop-blur-md bg-[var(--bg-parchment)]/90 border-b border-[var(--border-light)] transition-colors">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         {/* Brand */}
-        <Link href="/" className="font-serif font-bold text-base text-[var(--text-main)] hover:text-[var(--accent-clay)] transition-colors tracking-tight">
-          devd0gu<span className="font-mono text-xs text-[var(--accent-clay)] ml-0.5">.tr</span>
+        <Link
+          href="/"
+          className="font-serif font-bold text-base text-[var(--text-main)] hover:text-[var(--accent-clay)] transition-colors tracking-tight flex items-center gap-1.5"
+        >
+          <span>devd0gu</span>
+          <span className="font-mono text-xs text-[var(--accent-clay)]">.tr</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden sm:flex items-center gap-6 text-sm">
+        <nav className="hidden sm:flex items-center gap-5 text-sm">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
@@ -51,12 +58,13 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right side */}
-        <div className="flex items-center gap-3">
+        {/* Right side: Language Switcher + Theme Toggle */}
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="sm:hidden p-1 text-[var(--text-muted)]"
+            className="sm:hidden p-1 text-[var(--text-muted)] ml-1"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
