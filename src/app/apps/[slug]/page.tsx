@@ -56,9 +56,9 @@ export default async function AppDetailPage({ params }: Props) {
       </Link>
 
       {/* Main Container */}
-      <div className="retro-box rounded-2xl p-6 sm:p-8 bg-[var(--bg-card)] border-2 border-[var(--border-warm)] space-y-8">
+      <div className="clean-card p-6 sm:p-8 space-y-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-[var(--border-warm)]">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-[var(--border-light)]">
           <div className="flex items-start gap-4">
             <AppIcon id={project.id} size={56} />
             <div>
@@ -92,10 +92,10 @@ export default async function AppDetailPage({ params }: Props) {
               </a>
             )}
             <Link
-              href={project.links.privacy}
-              className="retro-btn px-4 py-2 rounded-xl font-mono text-xs font-medium bg-[var(--bg-card-subtle)] text-[var(--text-main)] hover:bg-[var(--bg-card)] flex items-center gap-2"
+              href={`/apps/${project.slug}/privacy`}
+              className="px-3.5 py-1.5 rounded-lg font-mono text-xs text-[var(--text-muted)] hover:text-[var(--text-main)] bg-[var(--bg-subtle)] border border-[var(--border-light)] hover:border-[var(--border-warm)] transition-colors flex items-center gap-1.5"
             >
-              <ShieldCheck className="w-4 h-4 text-[var(--accent-sage)]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-[var(--accent-sage)]" />
               <span>Privacy Policy</span>
             </Link>
           </div>

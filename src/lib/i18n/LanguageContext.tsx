@@ -22,12 +22,26 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const saved = localStorage.getItem('devdogu_locale') as Locale | null;
     if (saved && (saved === 'en' || saved === 'tr')) {
       setLocaleState(saved);
-    } else {
-      const browserLang = navigator.language.toLowerCase();
-      if (browserLang.startsWith('tr')) {
-        setLocaleState('tr');
-      }
+      return;
     }
+
+    // First check browser language as immediate synchronous hint
+    const browserLang = typeof navigator !== 'undefined' ? navigator.language.toLowerCase() : '';
+    if (browserLang.startsWith('tr')) {
+      setLocaleState('tr');
+    }
+
+    // Then refine with server-side IP/geo header detection
+    fetch('/api/geo')
+      .then((res) => res.json())
+      .then((data) => {
+        if (!localStorage.getItem('devdogu_locale') && data?.locale) {
+          setLocaleState(data.locale);
+        }
+      })
+      .catch(() => {
+        // Fallback already handled by browserLang
+      });
   }, []);
 
   const setLocale = (newLocale: Locale) => {

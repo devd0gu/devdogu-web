@@ -11,34 +11,16 @@ import { GithubIcon } from '@/components/Icons';
 
 export default function HomePage() {
   const { locale, t } = useLanguage();
-  const cortex = projects.find((p) => p.id === 'cortex');
-  const otherProjects = projects.filter((p) => p.id !== 'cortex');
 
   return (
-    <div className="space-y-16 max-w-3xl mx-auto py-6">
-      {/* Quiet Intro */}
+    <div className="space-y-14 max-w-3xl mx-auto py-6">
+      {/* Studio Intro */}
       <section className="space-y-4">
         <h1 className="font-serif text-3xl sm:text-4xl font-normal text-[var(--text-main)] tracking-tight">
           {t.hero.title}
         </h1>
         <p className="text-base sm:text-lg text-[var(--text-muted)] leading-relaxed max-w-2xl">
-          {locale === 'tr' ? (
-            <>
-              Bağımsız Android geliştiricisi. Çevrimdışı öncelikli araçlar, sakin yazılımlar ve{' '}
-              <Link href="/apps/cortex" className="text-[var(--accent-clay)] hover:underline font-medium">
-                Cortex
-              </Link>
-              —Anthropic'in Claude API mimarisi üzerine kurulu otonom mobil asistanı geliştiriyorum.
-            </>
-          ) : (
-            <>
-              Independent Android developer. I build offline-first tools, quiet software, and{' '}
-              <Link href="/apps/cortex" className="text-[var(--accent-clay)] hover:underline font-medium">
-                Cortex
-              </Link>
-              —an on-device autonomous agent designed around Anthropic's Claude API.
-            </>
-          )}
+          {t.hero.bio}
         </p>
 
         <div className="flex items-center gap-4 text-xs font-mono text-[var(--text-subtle)] pt-1">
@@ -71,55 +53,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured: Cortex */}
-      {cortex && (
-        <section className="space-y-3">
-          <div className="text-xs font-mono uppercase tracking-wider text-[var(--text-subtle)]">
-            {t.focus.tag}
-          </div>
-          <div className="clean-card p-5 sm:p-6 space-y-4">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-center gap-3.5">
-                <AppIcon id="cortex" size={44} />
-                <div>
-                  <h2 className="font-serif font-bold text-lg text-[var(--text-main)]">
-                    <Link href="/apps/cortex" className="hover:text-[var(--accent-clay)]">
-                      Cortex
-                    </Link>
-                  </h2>
-                  <p className="text-xs font-mono text-[var(--text-subtle)]">
-                    {t.focus.subtitle}
-                  </p>
-                </div>
-              </div>
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[var(--bg-subtle)] text-[var(--text-muted)] border border-[var(--border-light)]">
-                {t.focus.status}
-              </span>
-            </div>
-
-            <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-              {t.focus.description}
-            </p>
-
-            <div className="flex items-center gap-4 text-xs font-mono pt-1">
-              <Link
-                href="/apps/cortex"
-                className="text-[var(--accent-clay)] hover:underline flex items-center gap-1"
-              >
-                <span>{t.focus.specLink}</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <Link
-                href="/privacy/cortex"
-                className="text-[var(--text-subtle)] hover:text-[var(--text-main)]"
-              >
-                {t.focus.privacyLink}
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Projects List */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">
@@ -135,7 +68,7 @@ export default function HomePage() {
         </div>
 
         <div className="divide-y divide-[var(--border-light)] border-y border-[var(--border-light)]">
-          {otherProjects.map((proj) => {
+          {projects.map((proj) => {
             const title = locale === 'tr' && proj.titleTr ? proj.titleTr : proj.title;
             const desc =
               locale === 'tr' && proj.shortDescriptionTr
@@ -148,9 +81,9 @@ export default function HomePage() {
                 key={proj.id}
                 className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 sm:gap-6 group"
               >
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3.5">
                   <div className="mt-0.5">
-                    <AppIcon id={proj.id} size={32} />
+                    <AppIcon id={proj.id} size={36} />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
@@ -167,7 +100,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-xs font-mono shrink-0 pl-11 sm:pl-0 pt-1 sm:pt-0">
+                <div className="flex items-center gap-3 text-xs font-mono shrink-0 pl-12 sm:pl-0 pt-1 sm:pt-0">
                   {proj.links.playStore && (
                     <a
                       href={proj.links.playStore}

@@ -15,10 +15,8 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: t.nav.overview },
-    { href: '/apps/cortex', label: t.nav.cortex },
     { href: '/apps', label: t.nav.projects },
     { href: '/announcements', label: t.nav.devlog },
-    { href: '/privacy', label: t.nav.privacy },
   ];
 
   const isActive = (href: string) => {

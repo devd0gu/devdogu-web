@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async rewrites() {
+    return [
+      {
+        source: '/privacy/:slug',
+        destination: '/apps/:slug/privacy',
+      },
+    ];
+  },
 };
 
 export default nextConfig;

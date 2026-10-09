@@ -73,7 +73,7 @@ export const dictionaries: Record<Locale, Translations> = {
     },
     hero: {
       title: 'devd0gu',
-      bio: "Independent Android developer. I build offline-first tools, quiet software, and Cortex—an on-device autonomous agent designed around Anthropic's Claude API.",
+      bio: 'Independent Android studio & developer. Crafting offline-first tools, minimalist systems, and experimental mobile software.',
       github: 'GitHub',
       playStore: 'Google Play',
       contact: 'Email',
@@ -138,7 +138,7 @@ export const dictionaries: Record<Locale, Translations> = {
     },
     hero: {
       title: 'devd0gu',
-      bio: "Bağımsız Android geliştiricisi. Çevrimdışı öncelikli araçlar, sakin yazılımlar ve Anthropic'in Claude API mimarisi üzerine kurulu otonom mobil ajan Cortex'i geliştiriyorum.",
+      bio: 'Bağımsız Android geliştiricisi & stüdyo. Çevrimdışı öncelikli araçlar, sakin sistemler ve deneysel mobil yazılımlar üretiyorum.',
       github: 'GitHub',
       playStore: 'Google Play',
       contact: 'E-posta',
