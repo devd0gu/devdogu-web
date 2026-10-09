@@ -14,8 +14,8 @@ import {
   Cpu,
 } from 'lucide-react';
 import type { Metadata } from 'next';
-
 import AppIcon from '@/components/AppIcon';
+import CortexDeepDive from '@/components/CortexDeepDive';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -189,6 +189,9 @@ export default async function AppDetailPage({ params }: Props) {
             </div>
           </div>
         )}
+
+        {/* Deep Dive Architecture & Console for Cortex */}
+        {project.id === 'cortex' && <CortexDeepDive />}
       </div>
     </div>
   );
