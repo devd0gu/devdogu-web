@@ -1,19 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { Project } from '@/types';
-import {
-  ExternalLink,
-  ShieldCheck,
-  ArrowRight,
-  FileText,
-  Globe,
-  Gamepad2,
-  Smartphone,
-  Sparkles,
-  Newspaper,
-  Sword,
-  Cloud,
-} from 'lucide-react';
+import AppIcon from './AppIcon';
+import { ExternalLink, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 
 interface ProjectCardProps {
   project: Project;
@@ -21,27 +10,6 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, featured = false }: ProjectCardProps) {
-  const getIcon = () => {
-    switch (project.iconName) {
-      case 'sparkles':
-        return <Sparkles className="w-5 h-5 text-[#D9653B]" />;
-      case 'newspaper':
-        return <Newspaper className="w-5 h-5 text-[#B85834]" />;
-      case 'sword':
-        return <Sword className="w-5 h-5 text-[#D48C2E]" />;
-      case 'cloud':
-        return <Cloud className="w-5 h-5 text-[#4E7D63]" />;
-      case 'file-text':
-        return <FileText className="w-5 h-5 text-[#D9653B]" />;
-      case 'globe':
-        return <Globe className="w-5 h-5 text-[#4E7D63]" />;
-      case 'gamepad':
-        return <Gamepad2 className="w-5 h-5 text-[#E3744B]" />;
-      default:
-        return <Smartphone className="w-5 h-5 text-[#D9653B]" />;
-    }
-  };
-
   const getStatusBadge = () => {
     switch (project.status) {
       case 'Live':
@@ -65,9 +33,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
         {/* Top Header */}
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-center justify-center shrink-0">
-              {getIcon()}
-            </div>
+            <AppIcon id={project.id} size={42} />
             <div>
               <div className="flex items-center gap-2">
                 <h3 className="font-serif font-bold text-lg text-[var(--text-main)] group-hover:text-[var(--accent-terracotta)] transition-colors">

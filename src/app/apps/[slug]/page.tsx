@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 
+import AppIcon from '@/components/AppIcon';
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -57,21 +59,24 @@ export default async function AppDetailPage({ params }: Props) {
       <div className="retro-box rounded-2xl p-6 sm:p-8 bg-[var(--bg-card)] border-2 border-[var(--border-warm)] space-y-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-[var(--border-warm)]">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--accent-sage-soft)] text-[var(--accent-sage)] border border-[var(--accent-sage)]/25 font-semibold">
-                {project.status}
-              </span>
-              <span className="text-xs font-mono text-[var(--text-subtle)]">
-                v{project.version} • {project.category}
-              </span>
+          <div className="flex items-start gap-4">
+            <AppIcon id={project.id} size={56} />
+            <div>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--accent-sage-soft)] text-[var(--accent-sage)] border border-[var(--accent-sage)]/25 font-semibold">
+                  {project.status}
+                </span>
+                <span className="text-xs font-mono text-[var(--text-subtle)]">
+                  v{project.version} • {project.category}
+                </span>
+              </div>
+              <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[var(--text-main)]">
+                {project.title}
+              </h1>
+              <p className="font-medium text-base text-[var(--accent-clay)] mt-1">
+                {project.tagline}
+              </p>
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[var(--text-main)]">
-              {project.title}
-            </h1>
-            <p className="font-medium text-base text-[var(--accent-clay)] mt-1">
-              {project.tagline}
-            </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">

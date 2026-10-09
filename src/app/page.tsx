@@ -4,16 +4,17 @@ import { projects } from '@/data/projects';
 import { announcements } from '@/data/announcements';
 import ProjectCard from '@/components/ProjectCard';
 import AnnouncementCard from '@/components/AnnouncementCard';
+import AppIcon from '@/components/AppIcon';
 import PixelAvatar from '@/components/PixelAvatar';
 import {
   Sparkles,
   ArrowRight,
   ShieldCheck,
   ExternalLink,
+  Terminal,
   Cpu,
   Layers,
-  Smartphone,
-  Flame,
+  CheckCircle2,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -23,24 +24,25 @@ export default function HomePage() {
   return (
     <div className="space-y-20">
       {/* Hero Section */}
-      <section className="pt-6 sm:pt-12 pb-4">
+      <section className="pt-4 sm:pt-10 pb-4">
         <div className="flex flex-col items-start gap-4">
-          {/* Badge */}
+          {/* Subtle Studio Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-terracotta-soft)] text-[var(--accent-terracotta)] border border-[var(--accent-terracotta)]/25 text-xs font-mono font-medium shadow-xs">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Independent Android Studio & Mobile Lab</span>
+            <span className="w-2 h-2 rounded-full bg-[var(--accent-terracotta)] animate-pulse" />
+            <span>indie developer & mobile lab</span>
             <span className="text-[var(--text-subtle)]">•</span>
-            <span className="text-[var(--accent-sage)]">devdogu.tr</span>
+            <span className="text-[var(--text-muted)]">devdogu.tr</span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-6 mt-2">
-            <PixelAvatar size={76} />
+            <PixelAvatar size={74} />
             <div>
               <h1 className="font-serif text-3xl sm:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight">
-                Quiet tools, playful games, and autonomous mobile agents.
+                Offline tools, playful games, and autonomous Android agents.
               </h1>
               <p className="mt-3 text-base sm:text-lg text-[var(--text-muted)] max-w-2xl leading-relaxed">
-                I build Android software with an offline-first philosophy: broadsheet newspaper launchers, idle navigation bar RPGs, and <strong className="text-[var(--text-main)] font-semibold">Cortex</strong> — an autonomous mobile agent powered by Anthropic's Claude API.
+                Hi, I'm <strong className="text-[var(--text-main)] font-semibold">devd0gu</strong>.
+                I build software for myself first: broadsheet newspaper launchers, idle navigation bar RPGs, and <strong className="text-[var(--accent-terracotta)] font-semibold">Cortex</strong> — an autonomous mobile agent built on Anthropic's Claude API.
               </p>
             </div>
           </div>
@@ -61,7 +63,7 @@ export default function HomePage() {
               rel="noreferrer"
               className="retro-btn px-4 py-2.5 rounded-xl font-mono text-xs sm:text-sm font-medium bg-[var(--bg-card)] text-[var(--text-main)] hover:bg-[var(--bg-card-subtle)] flex items-center gap-2"
             >
-              <span>Google Play Developer Page</span>
+              <span>Google Play Developer Profile</span>
               <ExternalLink className="w-3.5 h-3.5 text-[var(--text-subtle)]" />
             </a>
 
@@ -74,80 +76,105 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Hard metrics */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full mt-8 pt-6 border-t border-[var(--border-warm)]">
+          {/* Genuine engineering facts ticker */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full mt-8 pt-6 border-t border-[var(--border-warm)] font-mono text-xs">
             <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-warm)]">
-              <div className="font-mono text-2xl font-bold text-[var(--accent-terracotta)]">8</div>
-              <div className="text-xs text-[var(--text-muted)] mt-0.5">Projects in Lab</div>
+              <div className="text-[var(--text-subtle)]">Agent Core</div>
+              <div className="text-base font-bold text-[var(--accent-terracotta)] mt-0.5">Claude 3.5 API</div>
+              <div className="text-[11px] text-[var(--text-muted)] mt-0.5">Sonnet & Haiku</div>
             </div>
             <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-warm)]">
-              <div className="font-mono text-2xl font-bold text-[var(--accent-sage)]">Claude 3.5</div>
-              <div className="text-xs text-[var(--text-muted)] mt-0.5">Anthropic Agent Engine</div>
+              <div className="text-[var(--text-subtle)]">Network Policy</div>
+              <div className="text-base font-bold text-[var(--accent-sage)] mt-0.5">Zero Telemetry</div>
+              <div className="text-[11px] text-[var(--text-muted)] mt-0.5">No analytics SDKs</div>
             </div>
             <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-warm)]">
-              <div className="font-mono text-2xl font-bold text-[var(--accent-honey)]">0 B</div>
-              <div className="text-xs text-[var(--text-muted)] mt-0.5">Ad Telemetry Sold</div>
+              <div className="text-[var(--text-subtle)]">Active Codebase</div>
+              <div className="text-base font-bold text-[var(--accent-honey)] mt-0.5">Kotlin & C++ JNI</div>
+              <div className="text-[11px] text-[var(--text-muted)] mt-0.5">+ Flutter & LibGDX</div>
             </div>
             <div className="p-3.5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-warm)]">
-              <div className="font-mono text-2xl font-bold text-[var(--text-main)]">.tr</div>
-              <div className="text-xs text-[var(--text-muted)] mt-0.5">Verified Domain</div>
+              <div className="text-[var(--text-subtle)]">Ecosystem</div>
+              <div className="text-base font-bold text-[var(--text-main)] mt-0.5">Play Store Verified</div>
+              <div className="text-[11px] text-[var(--text-muted)] mt-0.5">ID: 87614907124916...</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Flagship Section: Cortex & Claude for Startups */}
+      {/* Flagship: Cortex & Claude for Startups Showcase */}
       {flagship && (
         <section className="space-y-4">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[var(--accent-terracotta)]" />
-            <h2 className="font-mono text-xs uppercase tracking-wider text-[var(--accent-terracotta)] font-semibold">
-              Flagship Innovation • Anthropic Claude for Startups
-            </h2>
+          <div className="flex items-center justify-between pb-1">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-[var(--accent-terracotta)]" />
+              <h2 className="font-mono text-xs uppercase tracking-wider text-[var(--accent-terracotta)] font-semibold">
+                Flagship Project • Anthropic Claude for Startups
+              </h2>
+            </div>
+            <span className="text-xs font-mono text-[var(--text-subtle)]">dev.cortex</span>
           </div>
 
           <div className="retro-box rounded-2xl p-6 sm:p-8 bg-[var(--bg-card)] border-2 border-[var(--accent-terracotta)]/40 relative overflow-hidden">
-            <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
+            <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
               <div className="space-y-4 max-w-2xl">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--accent-honey-soft)] text-[var(--accent-honey)] border border-[var(--accent-honey)]/30 font-semibold">
-                    {flagship.status}
-                  </span>
-                  <span className="text-xs font-mono text-[var(--text-subtle)]">
-                    v{flagship.version}
-                  </span>
+                {/* Real Cortex Logo and title */}
+                <div className="flex items-center gap-4">
+                  <AppIcon id="cortex" size={60} />
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-[var(--accent-honey-soft)] text-[var(--accent-honey)] border border-[var(--accent-honey)]/30 font-semibold">
+                        {flagship.status}
+                      </span>
+                      <span className="text-xs font-mono text-[var(--text-subtle)]">
+                        v{flagship.version}
+                      </span>
+                    </div>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-[var(--text-main)] mt-0.5">
+                      Cortex — Autonomous Android AI Agent
+                    </h3>
+                  </div>
                 </div>
-
-                <h3 className="font-serif text-3xl sm:text-4xl font-extrabold text-[var(--text-main)]">
-                  {flagship.title} — {flagship.tagline}
-                </h3>
 
                 <p className="text-sm sm:text-base text-[var(--text-muted)] leading-relaxed">
-                  {flagship.shortDescription} Designed to utilize Claude 3.5 Sonnet and Haiku via API, Cortex links Android system accessibility with natural language intent while maintaining an uncompromising local privacy perimeter.
+                  Cortex bridges Android system-level accessibility, notification interception, and JNI services with Anthropic's Claude 3.5 Sonnet and Haiku. Rather than leaking full screen recordings to the cloud, Cortex evaluates on-screen UI hierarchies locally, scrubs personal tokens, and sends verified structured requests to the Claude API.
                 </p>
 
+                {/* Technical highlights */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono pt-2">
-                  <div className="p-2.5 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-center gap-2">
-                    <span className="text-[var(--accent-terracotta)] font-bold">✦</span>
-                    <span>Claude API Reasoning Engine</span>
+                  <div className="p-3 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-start gap-2.5">
+                    <span className="text-[var(--accent-terracotta)] font-bold mt-0.5">✦</span>
+                    <div>
+                      <strong className="text-[var(--text-main)]">Claude 3.5 Tool-Calling:</strong>
+                      <p className="text-[var(--text-subtle)] text-[11px] mt-0.5">Multi-step task breakdown and execution routing.</p>
+                    </div>
                   </div>
-                  <div className="p-2.5 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-center gap-2">
-                    <span className="text-[var(--accent-sage)] font-bold">✦</span>
-                    <span>Zero Background Telemetry</span>
+                  <div className="p-3 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-start gap-2.5">
+                    <span className="text-[var(--accent-sage)] font-bold mt-0.5">✦</span>
+                    <div>
+                      <strong className="text-[var(--text-main)]">Local Privacy Perimeter:</strong>
+                      <p className="text-[var(--text-subtle)] text-[11px] mt-0.5">On-device semantic parsing without remote telemetry.</p>
+                    </div>
                   </div>
-                  <div className="p-2.5 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-center gap-2">
-                    <span className="text-[var(--accent-honey)] font-bold">✦</span>
-                    <span>Android System Automation</span>
+                  <div className="p-3 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-start gap-2.5">
+                    <span className="text-[var(--accent-honey)] font-bold mt-0.5">✦</span>
+                    <div>
+                      <strong className="text-[var(--text-main)]">Floating Bubble & Daemon:</strong>
+                      <p className="text-[var(--text-subtle)] text-[11px] mt-0.5">Instant overlay trigger across any native app.</p>
+                    </div>
                   </div>
-                  <div className="p-2.5 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-center gap-2">
-                    <span className="text-[var(--text-main)] font-bold">✦</span>
-                    <span>Prepped for Claude for Startups</span>
+                  <div className="p-3 rounded-lg bg-[var(--bg-card-subtle)] border border-[var(--border-warm)] flex items-start gap-2.5">
+                    <span className="text-[var(--text-main)] font-bold mt-0.5">✦</span>
+                    <div>
+                      <strong className="text-[var(--text-main)]">Claude for Startups:</strong>
+                      <p className="text-[var(--text-subtle)] text-[11px] mt-0.5">Tailored for the Anthropic ecosystem grant.</p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 pt-4">
+                <div className="flex flex-wrap items-center gap-3 pt-3">
                   <Link
-                    href={`/apps/${flagship.slug}`}
+                    href="/apps/cortex"
                     className="retro-btn px-4 py-2 rounded-xl font-mono text-xs font-bold bg-[var(--accent-terracotta)] text-white hover:bg-[var(--accent-terracotta-hover)] flex items-center gap-2"
                   >
                     <span>Read Architecture Spec</span>
@@ -159,10 +186,25 @@ export default function HomePage() {
                     rel="noreferrer"
                     className="retro-btn px-4 py-2 rounded-xl font-mono text-xs font-medium bg-[var(--bg-card-subtle)] text-[var(--text-main)] hover:bg-[var(--bg-card)] flex items-center gap-1.5"
                   >
-                    <span>Anthropic Startups Program</span>
+                    <span>Claude for Startups Program</span>
                     <ExternalLink className="w-3 h-3 text-[var(--text-subtle)]" />
                   </a>
                 </div>
+              </div>
+
+              {/* Cortex 4-Node Network Diagram Badge */}
+              <div className="hidden lg:flex flex-col items-center justify-center p-6 rounded-xl bg-[#FAF0E6] dark:bg-[#201813] border border-[#E0D5C3] dark:border-[#3D2E20] shrink-0 self-center">
+                <img
+                  src="/images/logos/cortex.webp"
+                  alt="Cortex Mark"
+                  className="w-32 h-32 object-contain"
+                />
+                <span className="text-[11px] font-mono font-bold text-[var(--accent-terracotta)] mt-3">
+                  4-Node Agent Mesh
+                </span>
+                <span className="text-[10px] font-mono text-[var(--text-subtle)]">
+                  Action • Memory • Screen • Decision
+                </span>
               </div>
             </div>
           </div>
@@ -177,7 +219,7 @@ export default function HomePage() {
               Project Showcase
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[var(--text-main)] mt-1">
-              Selected Works & Experiments
+              Active Builds & Prototypes
             </h2>
           </div>
           <Link
