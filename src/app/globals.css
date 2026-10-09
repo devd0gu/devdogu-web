@@ -1,85 +1,65 @@
 @import "tailwindcss";
 
 :root {
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Claude-inspired warm parchment palette */
-  --bg-parchment: #FBF9F4;
+  /* Claude warm paper palette - soft, calm, restrained */
+  --bg-parchment: #FAF8F5;
   --bg-card: #FFFFFF;
-  --bg-card-subtle: #F6F3EB;
-  --text-main: #27221E;
-  --text-muted: #6B6359;
-  --text-subtle: #988F83;
-  --border-warm: #E6E0D4;
-  --border-strong: #D5CEBF;
+  --bg-subtle: #F4EFE6;
+  --text-main: #1C1917;
+  --text-muted: #57534E;
+  --text-subtle: #8C827A;
+  --border-light: #E7E2D8;
+  --border-subtle: #EFEBE1;
   
-  /* Accents */
-  --accent-terracotta: #D9653B;
-  --accent-terracotta-hover: #C2542B;
-  --accent-terracotta-soft: #FBF0EB;
-  --accent-clay: #B85834;
-  --accent-sage: #4E7D63;
-  --accent-sage-soft: #EEF5F1;
-  --accent-honey: #D48C2E;
-  --accent-honey-soft: #FCF5EB;
+  --accent-clay: #C85A32;
+  --accent-clay-hover: #B24B25;
+  --accent-clay-soft: #F9EFEA;
 }
 
 [data-theme="dark"] {
-  --bg-parchment: #161513;
-  --bg-card: #1F1D1A;
-  --bg-card-subtle: #272420;
-  --text-main: #EFEBE4;
-  --text-muted: #ACA498;
-  --text-subtle: #797166;
-  --border-warm: #2F2B25;
-  --border-strong: #413C34;
+  --bg-parchment: #141210;
+  --bg-card: #1C1916;
+  --bg-subtle: #24201C;
+  --text-main: #EDE8E1;
+  --text-muted: #A8A095;
+  --text-subtle: #736B62;
+  --border-light: #2B2621;
+  --border-subtle: #201D19;
 
-  --accent-terracotta: #E3744B;
-  --accent-terracotta-hover: #ED855E;
-  --accent-terracotta-soft: #2B1E19;
-  --accent-clay: #D9653B;
-  --accent-sage: #679E7E;
-  --accent-sage-soft: #1B2620;
-  --accent-honey: #E5A149;
-  --accent-honey-soft: #2B2317;
+  --accent-clay: #E0734C;
+  --accent-clay-hover: #EA835E;
+  --accent-clay-soft: #261A14;
 }
 
 body {
   background-color: var(--bg-parchment);
   color: var(--text-main);
   font-family: var(--font-sans);
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Custom retro pixel badge shadow */
-.retro-box {
-  border: 1.5px solid var(--border-warm);
+/* Subtle, quiet card styling - no loud shadows or heavy lines */
+.clean-card {
   background: var(--bg-card);
-  box-shadow: 2px 2px 0px 0px var(--border-strong);
-  transition: all 0.15s ease-in-out;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  transition: border-color 0.15s ease;
 }
 
-.retro-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 4px 4px 0px 0px var(--border-strong);
+.clean-card:hover {
+  border-color: #D3CBC0;
 }
 
-.retro-btn {
-  border: 1.5px solid var(--border-warm);
-  background: var(--bg-card);
-  box-shadow: 2px 2px 0px 0px var(--border-strong);
-  transition: all 0.12s ease;
+[data-theme="dark"] .clean-card:hover {
+  border-color: #3E3730;
 }
 
-.retro-btn:active {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0px 0px var(--border-strong);
-}
-
-/* Pixel art rendering */
 .pixelated {
   image-rendering: pixelated;
 }
