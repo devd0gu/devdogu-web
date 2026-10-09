@@ -1,26 +1,85 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Claude-inspired warm parchment palette */
+  --bg-parchment: #FBF9F4;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F6F3EB;
+  --text-main: #27221E;
+  --text-muted: #6B6359;
+  --text-subtle: #988F83;
+  --border-warm: #E6E0D4;
+  --border-strong: #D5CEBF;
+  
+  /* Accents */
+  --accent-terracotta: #D9653B;
+  --accent-terracotta-hover: #C2542B;
+  --accent-terracotta-soft: #FBF0EB;
+  --accent-clay: #B85834;
+  --accent-sage: #4E7D63;
+  --accent-sage-soft: #EEF5F1;
+  --accent-honey: #D48C2E;
+  --accent-honey-soft: #FCF5EB;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+[data-theme="dark"] {
+  --bg-parchment: #161513;
+  --bg-card: #1F1D1A;
+  --bg-card-subtle: #272420;
+  --text-main: #EFEBE4;
+  --text-muted: #ACA498;
+  --text-subtle: #797166;
+  --border-warm: #2F2B25;
+  --border-strong: #413C34;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --accent-terracotta: #E3744B;
+  --accent-terracotta-hover: #ED855E;
+  --accent-terracotta-soft: #2B1E19;
+  --accent-clay: #D9653B;
+  --accent-sage: #679E7E;
+  --accent-sage-soft: #1B2620;
+  --accent-honey: #E5A149;
+  --accent-honey-soft: #2B2317;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-parchment);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  min-height: 100vh;
+}
+
+/* Custom retro pixel badge shadow */
+.retro-box {
+  border: 1.5px solid var(--border-warm);
+  background: var(--bg-card);
+  box-shadow: 2px 2px 0px 0px var(--border-strong);
+  transition: all 0.15s ease-in-out;
+}
+
+.retro-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px 0px var(--border-strong);
+}
+
+.retro-btn {
+  border: 1.5px solid var(--border-warm);
+  background: var(--bg-card);
+  box-shadow: 2px 2px 0px 0px var(--border-strong);
+  transition: all 0.12s ease;
+}
+
+.retro-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px 0px var(--border-strong);
+}
+
+/* Pixel art rendering */
+.pixelated {
+  image-rendering: pixelated;
 }
